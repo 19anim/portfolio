@@ -1,4 +1,4 @@
-import MySelf from "../assets/DPN 46.JPG";
+import MySelf from "../assets/Myself.JPG";
 
 const LandingPage = () => {
   return (
