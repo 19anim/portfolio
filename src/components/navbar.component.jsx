@@ -1,7 +1,7 @@
 import Logo from "../assets/react.svg";
 const Navbar = () => {
   return (
-    <nav className="px-10 shadow-md">
+    <nav className="fixed top-0 w-full px-10 z-50 shadow-md backdrop-blur-md">
       <div className="flex justify-between h-16">
         <div className="flex items-center">
           <img className="h-8 w-auto" src={Logo} alt="React Logo" />
