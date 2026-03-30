@@ -5,7 +5,7 @@ const LandingPage = () => {
     <section class="h-screen snap-start pt-16 flex items-center justify-center">
       <div className="hero bg-base-200 min-h-screen">
         <div className="hero-content flex-col lg:flex-row ">
-          <img src={MySelf} className="max-w-75 md:max-w-sm rounded-lg shadow-2xl" />
+          <img src={MySelf} className="max-w-70 md:max-w-sm rounded-lg shadow-2xl" />
           <div>
             <p className="tracking-widest">Hi, my name is</p>
             <h1 className="text-3xl lg:text-5xl font-bold pb-4">Nguyen Phi Tuan An</h1>
