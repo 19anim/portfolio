@@ -12,7 +12,10 @@ const AboutMe = () => {
   };
 
   useEffect(() => {
-    scrollToBottom();
+    if (history.length > 0) {
+      console.log(history);
+      scrollToBottom();
+    }
   }, [history]);
 
   const handleCommand = (e) => {
@@ -88,14 +91,12 @@ const AboutMe = () => {
 
         {history.map((item, index) => (
           <div key={index} className="mt-1">
-            {/* Dòng lệnh người dùng nhập - Giữ nguyên prefix $ */}
             {item.command && (
               <pre data-prefix="$" className="text-emerald-400">
                 <code className="break-all">{item.command}</code>
               </pre>
             )}
 
-            {/* Dòng phản hồi từ Terminal - Căn lề để thẳng hàng */}
             {item.response && (
               <div className="pl-8 pr-4 text-gray-300 font-mono text-sm leading-6 break-words">
                 {item.response}
@@ -103,14 +104,12 @@ const AboutMe = () => {
             )}
           </div>
         ))}
-        {/* Input luôn ở cuối */}
         <div className="flex items-center mt-2 pl-4">
           <span className="text-emerald-400 font-mono mr-2">$</span>
           <input
             type="text"
             className="bg-transparent outline-none flex-1 font-mono text-emerald-400 caret-emerald-500"
             value={inputValue}
-            autoFocus
             onChange={(e) => setInputValue(e.target.value)}
             onKeyDown={handleCommand}
             spellCheck="false"
