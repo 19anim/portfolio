@@ -4,6 +4,7 @@ const AboutMe = () => {
   const [inputValue, setInputValue] = useState("");
   const [history, setHistory] = useState([]);
   const terminalBodyRef = useRef(null);
+  const inputRef = useRef(null);
 
   const scrollToBottom = () => {
     if (terminalBodyRef.current) {
@@ -34,6 +35,10 @@ const AboutMe = () => {
         case "bio":
           response =
             "I have a strong background in web development and a passion for creating innovative solutions.";
+          break;
+        case "help":
+          response =
+            "Available commands:\nwhoami - Introduction about myself\nskills - My current skills\nbio - Display information about my bio\nclear - Clear the terminal\nhelp - Show this help message";
           break;
         case "clear":
           setHistory([]);
@@ -68,25 +73,14 @@ const AboutMe = () => {
 
       <div
         ref={terminalBodyRef}
-        className="mockup-code w-full max-w-[400px] md:max-w-[700px] h-[700px] md:h-[400px] overflow-y-auto scroll-smooth bg-black/80"
+        onClick={() => inputRef.current?.focus()}
+        className="mockup-code w-[370px] md:w-[700px] h-[700px] md:h-[400px] overflow-y-auto scroll-smooth bg-black/80"
       >
         <pre className="text-info">
           <code>WELCOME TO MY PORTFOLIO</code>
         </pre>
         <pre>
-          <code>Below are available commands to use</code>
-        </pre>
-        <pre data-prefix="$">
-          <code>whoami: Display information about myself</code>
-        </pre>
-        <pre data-prefix="$">
-          <code>skills: Display information about my skills</code>
-        </pre>
-        <pre data-prefix="$">
-          <code>bio: Display information about my bio</code>
-        </pre>
-        <pre data-prefix="$" className="pb-5">
-          <code>clear: Clear the terminal</code>
+          <code>Type 'help' for available commands</code>
         </pre>
 
         {history.map((item, index) => (
@@ -98,7 +92,7 @@ const AboutMe = () => {
             )}
 
             {item.response && (
-              <div className="pl-8 pr-4 text-gray-300 font-mono text-sm leading-6 break-words">
+              <div className="pl-8 pr-4 text-gray-300 font-mono text-sm leading-6 break-words whitespace-pre-wrap">
                 {item.response}
               </div>
             )}
@@ -107,6 +101,7 @@ const AboutMe = () => {
         <div className="flex items-center mt-2 pl-4">
           <span className="text-emerald-400 font-mono mr-2">$</span>
           <input
+            ref={inputRef}
             type="text"
             className="bg-transparent outline-none flex-1 font-mono text-emerald-400 caret-emerald-500"
             value={inputValue}

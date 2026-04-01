@@ -3,7 +3,9 @@ import Navbar from "./components/navbar.component";
 import LandingPage from "./components/landing.component";
 import AboutMe from "./components/aboutMe.component";
 import Experience from "./components/experience.component";
-import Projects from "./components/projects.component";
+import Project1 from "./components/project1.component";
+import Project2 from "./components/project2.component";
+import Project3 from "./components/project3.component";
 import Contact from "./components/contact.component";
 
 function App() {
@@ -16,8 +18,10 @@ function App() {
       <Navbar />
       <LandingPage />
       <AboutMe />
-      <Experience />
-      <Projects />
+      {/* <Experience /> */}
+      <Project1 />
+      <Project2 />
+      <Project3 />
       <Contact />
     </div>
   );
