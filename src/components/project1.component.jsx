@@ -43,9 +43,8 @@ const Project1 = () => {
                 <h1 className="text-2xl md:text-5xl font-bold">Play And Share</h1>
                 <p className="py-3">
                   A web application that allows users to share their favorite travel destinations,
-                  complete with images and descriptions. Users can create accounts, post their
-                  travel experiences, and explore destinations shared by others. Moreover, users can
-                  create travel timeline, or split the money for a trip with their friends.
+                  complete with images and descriptions. Moreover, users can create travel timeline,
+                  or split the money for a trip with their friends.
                 </p>
                 <button
                   className="btn btn-primary hover:scale-95 transition-all duration-300"
