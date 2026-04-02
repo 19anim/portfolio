@@ -21,7 +21,7 @@ const Project1 = () => {
         Here are some of the "worthy" projects I've worked on.
       </desc>
 
-      <div className="mockup-browser border border-base-300 w-[370px] lg:min-w-[1150px] md:w-[80%] h-[700px] lg:h-[500px] bg-black/30">
+      <div className="mockup-browser overflow-visible border border-base-300 w-[370px] lg:min-w-[1150px] md:w-[80%] h-[700px] lg:h-[500px] bg-black/30">
         <div className="mockup-browser-toolbar">
           <div className="input">
             https://playandshare.netlify.app/
