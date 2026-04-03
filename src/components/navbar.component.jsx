@@ -1,12 +1,44 @@
-import Logo from "../assets/react.svg";
+import Logo from "../assets/logo.png";
+import { useState } from "react";
+
 const Navbar = () => {
+  const [isDownloading, setIsDownloading] = useState(false);
+  const [isDownloaded, setIsDownloaded] = useState(false);
+
+  const handleResumeDownload = () => {
+    setIsDownloading(true);
+
+    setTimeout(() => {
+      setIsDownloading(false);
+      setIsDownloaded(true);
+
+      setTimeout(() => {
+        setIsDownloaded(false);
+      }, 3000);
+    }, 1500);
+
+    const link = document.createElement("a");
+    link.href = "../../public/resume.pdf";
+    link.download = "CV_NguyenPhiTuanAn_WebDeveloper.pdf";
+    link.click();
+  };
+
+  const scrollToSection = (sectionId) => {
+    const element = document.getElementById(sectionId);
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
   return (
     <nav className="fixed top-0 w-full px-10 z-50 shadow-md backdrop-blur-md">
       <div className="flex justify-between h-16">
         <div className="flex items-center">
-          <img className="h-8 w-auto" src={Logo} alt="React Logo" />
+          <a onClick={() => scrollToSection("landing")}>
+            <img className="h-16 w-auto cursor-pointer" src={Logo} alt="Logo" />
+          </a>
         </div>
-        <div className="flex items-center">
+        <div className="flex items-center gap-4">
           <div className="dropdown">
             <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
               <svg
@@ -30,22 +62,22 @@ const Navbar = () => {
               className="menu menu-md dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow"
             >
               <li>
-                <a>
+                <a onClick={() => scrollToSection("about")}>
                   <span className="text-emerald-300">01.</span> About me
                 </a>
               </li>
               <li>
-                <a>
+                <a onClick={() => scrollToSection("experience")}>
                   <span className="text-emerald-300">02.</span> Experience
                 </a>
               </li>
               <li>
-                <a>
+                <a onClick={() => scrollToSection("projects")}>
                   <span className="text-emerald-300">03.</span> Projects
                 </a>
               </li>
               <li>
-                <a>
+                <a onClick={() => scrollToSection("contact")}>
                   <span className="text-emerald-300">04.</span> Contact
                 </a>
               </li>
@@ -55,29 +87,60 @@ const Navbar = () => {
           <div className="navbar-center hidden lg:flex">
             <ul className="menu menu-horizontal pr-5">
               <li>
-                <a className="text-gray-400">
+                <a
+                  onClick={() => scrollToSection("about")}
+                  className="text-gray-400 cursor-pointer hover:text-emerald-300 transition-colors"
+                >
                   <span className="text-emerald-300">01.</span> About me
                 </a>
               </li>
               <li>
-                <a className="text-gray-400">
+                <a
+                  onClick={() => scrollToSection("experience")}
+                  className="text-gray-400 cursor-pointer hover:text-emerald-300 transition-colors"
+                >
                   <span className="text-emerald-300">02.</span> Experience
                 </a>
               </li>
               <li>
-                <a className="text-gray-400">
+                <a
+                  onClick={() => scrollToSection("projects")}
+                  className="text-gray-400 cursor-pointer hover:text-emerald-300 transition-colors"
+                >
                   <span className="text-emerald-300">03.</span> Projects
                 </a>
               </li>
               <li>
-                <a className="text-gray-400">
+                <a
+                  onClick={() => scrollToSection("contact")}
+                  className="text-gray-400 cursor-pointer hover:text-emerald-300 transition-colors"
+                >
                   <span className="text-emerald-300">04.</span> Contact
                 </a>
               </li>
             </ul>
           </div>
-          <button className="btn border-emerald-300 text-emerald-300 hover:-translate-1 hover:shadow-[4px_4px_0_0_#6ee7b7] transition-transform duration-200">
-            Resume
+          <button
+            onClick={handleResumeDownload}
+            disabled={isDownloading}
+            className={`btn border-2 transition-all duration-500 ${
+              isDownloaded
+                ? "bg-emerald-500 border-emerald-500 text-white"
+                : isDownloading
+                  ? "bg-emerald-300/20 border-emerald-300 text-emerald-300"
+                  : "border-emerald-300 text-emerald-300 hover:-translate-x-1 hover:shadow-[4px_4px_0_0_#10b981]"
+            }`}
+          >
+            <i
+              className={`fa-solid transition-all ${
+                isDownloading
+                  ? "fa-spinner animate-spin"
+                  : isDownloaded
+                    ? "fa-check"
+                    : "fa-download"
+              }`}
+            ></i>
+            {isDownloading ? "Downloading..." : isDownloaded ? "Downloaded!" : "Resume"}
           </button>
         </div>
       </div>

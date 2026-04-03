@@ -2,3 +2,10 @@
 @plugin "daisyui" {
   themes: all;
 }
+
+@layer components {
+  .skills-wrapper:hover .animate-scrollX {
+    animation-play-state: paused;
+    cursor: pointer;
+  }
+}

@@ -2,7 +2,10 @@ import indexPage from "../assets/playandshare.png";
 
 const Project1 = () => {
   return (
-    <section className="h-screen snap-start pt-16 flex flex-col items-center justify-center gap-1">
+    <section
+      id="projects"
+      className="h-screen snap-start pt-16 flex flex-col items-center justify-center gap-1"
+    >
       <div className="flex">
         <div className="flex gap-2 items-center">
           <div className="border rounded-md px-1 border-emerald-300 text-emerald-300">03. 01 </div>
@@ -40,7 +43,7 @@ const Project1 = () => {
                 className="max-w-xs md:max-w-lg lg:max-w-xl rounded-lg shadow-2xl hover:scale-125 transition-all duration-300 cursor-pointer"
               />
               <div className="font-mono">
-                <h1 className="text-2xl md:text-5xl font-bold">Play And Share</h1>
+                <h1 className="text-2xl md:text-5xl font-bold text-emerald-300">Play And Share</h1>
                 <p className="py-3">
                   A web application that allows users to share their favorite travel destinations,
                   complete with images and descriptions. Moreover, users can create travel timeline,

@@ -40,7 +40,7 @@ const Project2 = () => {
                 className="max-w-xs md:max-w-lg lg:max-w-xl rounded-lg shadow-2xl hover:scale-125 transition-all duration-300 cursor-pointer"
               />
               <div className="font-mono">
-                <h1 className="text-2xl md:text-5xl font-bold">TAMT Wedding</h1>
+                <h1 className="text-2xl md:text-5xl font-bold text-emerald-300">TAMT Wedding</h1>
                 <p className="py-3">
                   An online wedding invitation website for me and my wife. The website includes
                   information about the wedding, such as the date, location, and schedule of events,

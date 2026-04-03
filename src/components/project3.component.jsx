@@ -40,7 +40,9 @@ const Project3 = () => {
                 className="max-w-xs md:max-w-lg lg:max-w-xl rounded-lg shadow-2xl hover:scale-125 transition-all duration-300 cursor-pointer"
               />
               <div className="font-mono">
-                <h1 className="text-2xl md:text-5xl font-bold">JAGERTHEJAGER SHOP</h1>
+                <h1 className="text-2xl md:text-5xl font-bold text-emerald-300">
+                  JAGERTHEJAGER SHOP
+                </h1>
                 <p className="py-3">
                   A web application that allows users to browse and purchase products from an online
                   store. Users can create accounts, add items to their cart, and securely checkout

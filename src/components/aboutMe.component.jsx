@@ -56,7 +56,10 @@ const AboutMe = () => {
   };
 
   return (
-    <section className="h-screen snap-start pt-16 flex flex-col items-center justify-center gap-5">
+    <section
+      id="about"
+      className="h-screen snap-start pt-16 flex flex-col items-center justify-center gap-5"
+    >
       <div className="flex">
         <div className="flex gap-2 items-center">
           <div className="border rounded-md px-1 border-emerald-300 text-emerald-300">01. </div>
