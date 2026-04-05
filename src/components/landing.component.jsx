@@ -18,7 +18,7 @@ const LandingPage = () => {
     }, 1500);
 
     const link = document.createElement("a");
-    link.href = "../../public/resume.pdf";
+    link.href = "/resume.pdf";
     link.download = "CV_NguyenPhiTuanAn_WebDeveloper.pdf";
     link.click();
   };
