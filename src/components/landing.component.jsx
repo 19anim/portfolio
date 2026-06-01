@@ -1,79 +1,63 @@
-import MySelf from "../assets/Myself.JPG";
-import { useState } from "react";
+const scrollTo = (id) => document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
 
-const LandingPage = () => {
-  const [isDownloading, setIsDownloading] = useState(false);
-  const [isDownloaded, setIsDownloaded] = useState(false);
-
-  const handleResumeDownload = () => {
-    setIsDownloading(true);
-
-    setTimeout(() => {
-      setIsDownloading(false);
-      setIsDownloaded(true);
-
-      setTimeout(() => {
-        setIsDownloaded(false);
-      }, 3000);
-    }, 1500);
-
-    const link = document.createElement("a");
-    link.href = "/resume.pdf";
-    link.target = "_blank";
-    link.download = "CV_NguyenPhiTuanAn_WebDeveloper.pdf";
-    link.click();
-  };
-
-  return (
-    <section id="landing" className="h-screen snap-start pt-16 flex items-center justify-center">
-      <div className="hero bg-base-200 min-h-screen">
-        <div className="hero-content flex-col sm:flex-row ">
-          <img src={MySelf} className="max-w-70 md:max-w-sm rounded-lg shadow-2xl" />
-          <div>
-            <p className="tracking-widest">Hi, my name is</p>
-            <h1 className="text-3xl lg:text-5xl font-bold pb-4">Nguyen Phi Tuan An</h1>
-            <p className="text-xl">
-              A{" "}
-              <span className="text-rotate duration-6000">
-                <span>
-                  <span className="bg-teal-400 text-teal-800 px-2">Passionate Developer</span>
-                  <span className="bg-red-400 text-red-800 px-2">Creative Developer</span>
-                  <span className="bg-blue-400 text-blue-800 px-2">Meister</span>
-                </span>
-              </span>
-            </p>
-            <p className="py-4">
-              I'm a website developer with a passion for creating innovative and efficient
-              solutions. I strive to build applications that not only function flawlessly but also
-              provide an exceptional user experience.
-            </p>
-            <button
-              onClick={handleResumeDownload}
-              disabled={isDownloading}
-              className={`btn border-2 tracking-widest font-semibold transition-all duration-500 ${
-                isDownloaded
-                  ? "bg-emerald-500 border-emerald-500 text-white"
-                  : isDownloading
-                    ? "bg-emerald-300/20 border-emerald-300 text-emerald-300"
-                    : "bg-transparent border-emerald-300 text-emerald-300 hover:bg-emerald-300/10 hover:scale-105 active:scale-95"
-              }`}
-            >
-              <i
-                className={`fa-solid transition-all duration-500 ${
-                  isDownloading
-                    ? "fa-spinner animate-spin"
-                    : isDownloaded
-                      ? "fa-check"
-                      : "fa-download group-hover:animate-bounce"
-                }`}
-              ></i>
-              {isDownloading ? "Downloading..." : isDownloaded ? "Downloaded!" : "Get My Resume"}
-            </button>
-          </div>
+const LandingPage = () => (
+  <section id="top" className="hero-section">
+    <div className="hero-grid shell">
+      <div className="hero-copy">
+        <p className="eyebrow">FULL-STACK WEB DEVELOPER</p>
+        <h1>
+          I build useful
+          <br />
+          web products<span>.</span>
+        </h1>
+        <p className="hero-intro">
+          I&apos;m Nguyen Phi Tuan An, a software engineer based in Vietnam. I turn ideas into
+          reliable, user-friendly web experiences for teams and clients.
+        </p>
+        <div className="hero-actions">
+          <button className="btn btn-primary" onClick={() => scrollTo("projects")}>
+            View selected work <span>↗</span>
+          </button>
+          <button className="btn btn-ghost" onClick={() => scrollTo("contact")}>
+            Let&apos;s talk
+          </button>
+        </div>
+        <div className="availability">
+          <span className="status-dot"></span>
+          Open to software roles and freelance projects
         </div>
       </div>
-    </section>
-  );
-};
+
+      <div className="mockup-code terminal-card">
+        <pre data-prefix="01">
+          <code>const developer = {"{"}</code>
+        </pre>
+        <pre data-prefix="02">
+          <code>&nbsp;name: <em>&quot;Nguyen Phi Tuan An&quot;</em>,</code>
+        </pre>
+        <pre data-prefix="03">
+          <code>&nbsp;experience: <em>&quot;5+ years&quot;</em>,</code>
+        </pre>
+        <pre data-prefix="04">
+          <code>&nbsp;focus: [<em>&quot;web apps&quot;</em>, <em>&quot;UI&quot;</em>, <em>&quot;automation&quot;</em>],</code>
+        </pre>
+        <pre data-prefix="05">
+          <code>&nbsp;availableFor: [<em>&quot;roles&quot;</em>, <em>&quot;freelance&quot;</em>],</code>
+        </pre>
+        <pre data-prefix="06">
+          <code>{"}"};</code>
+        </pre>
+        <pre data-prefix="07" className="terminal-result">
+          <code>developer.build(<em>&quot;your next idea&quot;</em>);<i></i></code>
+        </pre>
+      </div>
+    </div>
+    <div className="hero-footer shell">
+      <p>SCROLL TO EXPLORE</p>
+      <div></div>
+      <p>HO CHI MINH CITY, VN</p>
+    </div>
+  </section>
+);
 
 export default LandingPage;
