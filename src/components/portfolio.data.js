@@ -26,7 +26,7 @@ export const experience = [
   {
     period: "Jul 2025 - Present",
     company: "Fujifilm Business Innovation Vietnam",
-    role: "Software Engineer",
+    role: "Senior Software Engineer",
     description:
       "Developing Panel UI features for multifunction printers with cross-functional teams. I also build internal tools, including automated reports and browser extensions, to make recurring work faster and more consistent.",
     tools: ["JavaScript", "Jasmine", "HTML & CSS", "Node.js", "Linux", "PlantUML"],
