@@ -1,5 +1,4 @@
 import playAndShare from "../assets/playandshare.png";
-import tamtWedding from "../assets/tamtwedding.png";
 import jagerShop from "../assets/jagerthejagershop.png";
 
 export const navItems = [
@@ -52,31 +51,42 @@ export const experience = [
 export const projects = [
   {
     number: "01",
+    title: "FCO Hub",
+    type: "Full-stack FC Online companion platform",
+    description:
+      "A full-stack FC Online companion platform with advanced player search, squad building, upgrade simulation, live team-color evaluation, automated data pipelines, and admin monetization tools.",
+    tools: ["React", "Tailwind CSS", "Node.js", "Express", "MongoDB", "Playwright", "Cheerio", "Vitest"],
+    href: "https://fcodaphim.netlify.app/",
+  },
+  {
+    number: "02",
     title: "Play And Share",
     type: "Full-stack travel platform",
     image: playAndShare,
     description:
-      "A social travel app for sharing destinations, creating trip timelines, and splitting expenses with friends.",
-    tools: ["React", "Redux", "Node.js", "Express", "MongoDB", "Cloudinary"],
+      "A social travel app for sharing destinations, creating trip timelines, collaborative trip planning, and splitting expenses with friends.",
+    tools: ["React", "Redux Toolkit", "Node.js", "Express", "MongoDB", "Cloudinary"],
     href: "https://playandshare.netlify.app/",
   },
   {
-    number: "02",
+    number: "03",
     title: "JAGERTHEJAGER Shop",
     type: "Full-stack e-commerce",
     image: jagerShop,
     description:
-      "An online store with accounts, cart and checkout flows, shipping estimates, plus an admin dashboard for products and orders.",
-    tools: ["React", "Node.js", "Express", "MongoDB", "JWT", "Tailwind CSS"],
+      "An online store with product browsing, accounts, cart and checkout flows, shipping estimates, plus an admin dashboard for products and orders.",
+    tools: ["React", "Tailwind CSS", "Node.js", "Express", "MongoDB", "JWT"],
     href: "https://jagerthejagershop.netlify.app/",
   },
+];
+
+export const otherProjects = [
   {
-    number: "03",
+    number: "01",
     title: "TAMT Wedding",
-    type: "Client-style event website",
-    image: tamtWedding,
+    type: "Online wedding invitation",
     description:
-      "A responsive wedding invitation with event details and an RSVP flow, designed and delivered for a real occasion.",
+      "A responsive wedding invitation with event details, schedules, location information, mobile-optimized animations, and RSVP management for guests.",
     tools: ["React", "Tailwind CSS", "Motion", "DaisyUI", "SheetDB"],
     href: "https://tamtwedding.netlify.app/",
   },
