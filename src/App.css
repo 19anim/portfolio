@@ -172,6 +172,35 @@ h1 span {
   margin-top: 30px;
 }
 
+.motion-button span,
+.text-link span {
+  display: inline-block;
+  transition: transform 180ms ease;
+}
+
+.motion-button:hover span,
+.text-link:hover span {
+  transform: translate(3px, -3px);
+}
+
+.btn-primary.motion-button {
+  box-shadow: 0 0 0 rgba(0, 217, 146, 0);
+  transition: transform 180ms ease, box-shadow 180ms ease, background-color 180ms ease;
+}
+
+.btn-primary.motion-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 14px 34px rgba(0, 217, 146, 0.16);
+}
+
+.btn-ghost.motion-button {
+  transition: transform 180ms ease, color 180ms ease, background-color 180ms ease;
+}
+
+.btn-ghost.motion-button:hover {
+  transform: translateY(-2px);
+}
+
 .availability {
   display: flex;
   align-items: center;
