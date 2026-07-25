@@ -409,18 +409,49 @@ h3 {
   gap: 18px;
 }
 
+.project-card-shell {
+  perspective: 1100px;
+}
+
 .project-card {
+  position: relative;
   display: flex;
+  height: 100%;
   flex-direction: column;
+  overflow: hidden;
   border-radius: 0;
   border: 1px solid var(--line);
   background: var(--canvas);
-  transition: border-color 180ms ease, transform 180ms ease;
+  transform-style: preserve-3d;
+  transition: border-color 180ms ease, transform 180ms ease, box-shadow 180ms ease;
 }
 
 .project-card:hover {
   border-color: rgba(0, 217, 146, 0.7);
   transform: translateY(-5px);
+  box-shadow: 0 22px 48px rgba(0, 0, 0, 0.26);
+}
+
+.tilt-card {
+  will-change: transform;
+}
+
+.tilt-card-glow {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 180ms ease;
+}
+
+.tilt-card:hover .tilt-card-glow {
+  opacity: 1;
+}
+
+.tilt-card > :not(.tilt-card-glow) {
+  position: relative;
+  z-index: 1;
 }
 
 .project-image {
@@ -682,6 +713,10 @@ h3 {
   .project-card {
     display: grid;
     grid-template-columns: minmax(260px, 0.9fr) 1.1fr;
+  }
+
+  .project-card-shell .project-card {
+    min-height: 100%;
   }
 
   .project-image {

@@ -1,5 +1,9 @@
+import { motion as Motion } from "motion/react";
 import SectionHeading from "./sectionHeading.component";
 import { otherProjects, projects } from "./portfolio.data";
+import { Reveal, RevealGroup } from "./motion/reveal.component";
+import { revealItemVariants } from "./motion/reveal.variants";
+import TiltCard from "./motion/tiltCard.component";
 
 const ProjectImage = ({ project }) => (
   <a href={project.href} target="_blank" rel="noreferrer" className="project-image">
@@ -44,29 +48,31 @@ const Projects = () => (
         copy="A few projects that show how I approach full-stack delivery, user experience, and practical problem solving."
       />
 
-      <div className="projects-grid">
+      <RevealGroup className="projects-grid" stagger={0.08}>
         {projects.map((project) => (
-          <article className="card project-card" key={project.number}>
-            <ProjectImage project={project} />
-            <ProjectDetails project={project} />
-          </article>
+          <Motion.div className="project-card-shell" variants={revealItemVariants} key={project.number}>
+            <TiltCard>
+              <ProjectImage project={project} />
+              <ProjectDetails project={project} />
+            </TiltCard>
+          </Motion.div>
         ))}
-      </div>
+      </RevealGroup>
 
       {otherProjects.length > 0 && (
-        <div className="other-projects">
+        <Reveal className="other-projects">
           <div className="other-projects-heading">
             <p>MORE WORK</p>
             <h3>Other Projects</h3>
           </div>
-          <div className="other-projects-grid">
+          <RevealGroup className="other-projects-grid" stagger={0.06}>
             {otherProjects.map((project) => (
-              <article className="card project-card other-project-card" key={project.number}>
+              <Motion.article className="card project-card other-project-card" variants={revealItemVariants} key={project.number}>
                 <ProjectDetails project={project} linkLabel="Open project" />
-              </article>
+              </Motion.article>
             ))}
-          </div>
-        </div>
+          </RevealGroup>
+        </Reveal>
       )}
     </div>
   </section>
