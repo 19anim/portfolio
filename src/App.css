@@ -329,6 +329,27 @@ h2 {
   font-size: 11px;
 }
 
+.skills-list .badge,
+.tag-list .badge {
+  transition: border-color 180ms ease, color 180ms ease, background-color 180ms ease, transform 180ms ease;
+}
+
+.skills-list .badge:hover,
+.tag-list .badge:hover {
+  border-color: rgba(0, 217, 146, 0.82);
+  color: var(--green);
+  background: rgba(0, 217, 146, 0.06);
+  transform: translateY(-2px);
+}
+
+button:focus-visible,
+a:focus-visible,
+input:focus-visible,
+textarea:focus-visible {
+  outline: 2px solid rgba(0, 217, 146, 0.86);
+  outline-offset: 3px;
+}
+
 .portrait-frame {
   position: relative;
   padding: 12px;
@@ -600,11 +621,12 @@ h3 {
   gap: 4px;
   color: var(--ink);
   text-decoration: none;
-  transition: color 180ms ease;
+  transition: color 180ms ease, transform 180ms ease;
 }
 
 .contact-links a:hover {
   color: var(--green);
+  transform: translateX(4px);
 }
 
 .contact-links span {
@@ -645,7 +667,7 @@ h3 {
   background: #111;
   font-size: 14px;
   line-height: 1.4;
-  transition: border-color 180ms ease;
+  transition: border-color 180ms ease, box-shadow 180ms ease;
 }
 
 .contact-form textarea {
@@ -655,6 +677,7 @@ h3 {
 .contact-form input:focus,
 .contact-form textarea:focus {
   border-color: var(--green);
+  box-shadow: 0 0 0 3px rgba(0, 217, 146, 0.08);
 }
 
 .submit-button:disabled {
@@ -848,5 +871,45 @@ h3 {
     display: grid;
     gap: 8px;
     margin-top: 72px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  .site-spotlight,
+  .tilt-card-glow {
+    display: none;
+  }
+
+  .project-card,
+  .btn-primary.motion-button,
+  .btn-ghost.motion-button,
+  .skills-list .badge,
+  .tag-list .badge,
+  .contact-links a {
+    transform: none !important;
+  }
+}
+
+@media (hover: none), (pointer: coarse) {
+  .site-spotlight,
+  .tilt-card-glow {
+    display: none;
+  }
+
+  .tilt-card {
+    transform: none !important;
   }
 }
