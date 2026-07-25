@@ -10,6 +10,24 @@
   --line: #303030;
 }
 
+.site-spotlight {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 220ms ease;
+}
+
+.site-spotlight.is-active {
+  opacity: 1;
+}
+
+.site-main {
+  position: relative;
+  z-index: 1;
+}
+
 .shell {
   width: min(1160px, calc(100% - 48px));
   margin-inline: auto;

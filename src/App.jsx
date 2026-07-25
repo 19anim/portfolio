@@ -5,12 +5,14 @@ import AboutMe from "./components/aboutMe.component";
 import Experience from "./components/experience.component";
 import Projects from "./components/projects.component";
 import Contact from "./components/contact.component";
+import Spotlight from "./components/motion/spotlight.component";
 
 function App() {
   return (
     <>
+      <Spotlight />
       <Navbar />
-      <main>
+      <main className="site-main">
         <LandingPage />
         <AboutMe />
         <Experience />
