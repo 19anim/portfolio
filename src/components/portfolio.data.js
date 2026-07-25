@@ -1,3 +1,4 @@
+import fcoHub from "../assets/fcohub.png";
 import playAndShare from "../assets/playandshare.png";
 import jagerShop from "../assets/jagerthejagershop.png";
 
@@ -53,6 +54,7 @@ export const projects = [
     number: "01",
     title: "FCO Hub",
     type: "Full-stack FC Online companion platform",
+    image: fcoHub,
     description:
       "A full-stack FC Online companion platform with advanced player search, squad building, upgrade simulation, live team-color evaluation, automated data pipelines, and admin monetization tools.",
     tools: ["React", "Tailwind CSS", "Node.js", "Express", "MongoDB", "Playwright", "Cheerio", "Vitest"],
