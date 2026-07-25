@@ -1,13 +1,16 @@
+import { motion as Motion } from "motion/react";
 import MySelf from "../assets/Myself.JPG";
 import SectionHeading from "./sectionHeading.component";
 import { skills } from "./portfolio.data";
+import { Reveal, RevealGroup } from "./motion/reveal.component";
+import { revealItemVariants } from "./motion/reveal.variants";
 
 const AboutMe = () => (
   <section id="about" className="section section-soft">
     <div className="shell about-grid">
       <div>
         <SectionHeading number="01" eyebrow="ABOUT" title="An engineer who ships." />
-        <div className="about-copy">
+        <Reveal className="about-copy" delay={0.08}>
           <p>
             I started in software quality, moved into frontend development, and now work as a
             software engineer. That path taught me to care equally about how a product feels and
@@ -18,21 +21,23 @@ const AboutMe = () => (
             products that solve clear problems. For freelance work, I can take an idea from a
             first conversation to a deployed website.
           </p>
-        </div>
-        <div className="skills-list">
+        </Reveal>
+        <RevealGroup className="skills-list" stagger={0.035}>
           {skills.map((skill) => (
-            <span className="badge badge-outline badge-primary" key={skill}>{skill}</span>
+            <Motion.span className="badge badge-outline badge-primary" variants={revealItemVariants} key={skill}>
+              {skill}
+            </Motion.span>
           ))}
-        </div>
+        </RevealGroup>
       </div>
-      <div className="portrait-frame">
+      <Reveal className="portrait-frame" delay={0.12}>
         <div className="portrait-label">PROFILE_001</div>
         <img src={MySelf} alt="Nguyen Phi Tuan An" />
         <div className="portrait-meta">
           <span>SOFTWARE ENGINEER</span>
           <span>AVAILABLE</span>
         </div>
-      </div>
+      </Reveal>
     </div>
   </section>
 );

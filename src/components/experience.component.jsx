@@ -1,5 +1,8 @@
+import { motion as Motion } from "motion/react";
 import SectionHeading from "./sectionHeading.component";
 import { experience } from "./portfolio.data";
+import { RevealGroup } from "./motion/reveal.component";
+import { revealItemVariants } from "./motion/reveal.variants";
 
 const Experience = () => (
   <section id="experience" className="section">
@@ -10,9 +13,9 @@ const Experience = () => (
         title="Built through real product work."
         copy="A background spanning software quality, frontend development, and product-focused engineering."
       />
-      <div className="experience-list">
+      <RevealGroup className="experience-list" stagger={0.07}>
         {experience.map((item) => (
-          <article className="experience-row" key={item.company}>
+          <Motion.article className="experience-row" variants={revealItemVariants} key={item.company}>
             <p className="experience-period">{item.period}</p>
             <div>
               <h3>{item.role}</h3>
@@ -26,9 +29,9 @@ const Experience = () => (
                 ))}
               </div>
             </div>
-          </article>
+          </Motion.article>
         ))}
-      </div>
+      </RevealGroup>
     </div>
   </section>
 );

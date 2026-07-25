@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import emailjs from "@emailjs/browser";
 import SectionHeading from "./sectionHeading.component";
+import { Reveal } from "./motion/reveal.component";
 
 const Contact = () => {
   const [form, setForm] = useState({ name: "", email: "", subject: "", message: "" });
@@ -37,11 +38,11 @@ const Contact = () => {
       <div className="shell contact-grid">
         <div>
           <SectionHeading number="04" eyebrow="CONTACT" title="Let's build something useful." />
-          <p className="section-copy">
+          <Reveal as="p" className="section-copy" delay={0.08}>
             I&apos;m open to software engineering roles and freelance web projects. Tell me what
             you&apos;re working on, and I&apos;ll reply within 24-48 hours.
-          </p>
-          <div className="contact-links">
+          </Reveal>
+          <Reveal className="contact-links" delay={0.14}>
             <a href="mailto:nptatdt@gmail.com"><span>EMAIL</span>nptatdt@gmail.com</a>
             <a href="https://www.linkedin.com/in/19anim/" target="_blank" rel="noreferrer">
               <span>LINKEDIN</span>linkedin.com/in/19anim ↗
@@ -49,10 +50,10 @@ const Contact = () => {
             <a href="https://github.com/19anim" target="_blank" rel="noreferrer">
               <span>GITHUB</span>github.com/19anim ↗
             </a>
-          </div>
+          </Reveal>
         </div>
 
-        <form className="card contact-form" onSubmit={handleSubmit}>
+        <Reveal as="form" className="card contact-form" delay={0.1} onSubmit={handleSubmit}>
           <div className="form-row">
             <label>NAME<input className="input" name="name" value={form.name} onChange={updateForm} required placeholder="Your name" /></label>
             <label>EMAIL<input className="input" name="email" type="email" value={form.email} onChange={updateForm} required placeholder="you@company.com" /></label>
@@ -64,12 +65,12 @@ const Contact = () => {
           </button>
           {state === "sent" && <p className="form-status success">Message sent. I&apos;ll be in touch soon.</p>}
           {state === "error" && <p className="form-status error">Message failed to send. Please email me directly.</p>}
-        </form>
+        </Reveal>
       </div>
-      <footer className="shell footer">
+      <Reveal as="footer" className="shell footer">
         <span>© 2026 Nguyen Phi Tuan An</span>
         <span>BUILT WITH REACT // DESIGNED TO SHIP</span>
-      </footer>
+      </Reveal>
     </section>
   );
 };
