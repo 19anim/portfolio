@@ -20,7 +20,7 @@ export const Reveal = ({
   children,
   className = "",
   delay = 0,
-  viewport = { once: true, amount: 0.24 },
+  viewport = { once: false, amount: 0.24 },
   ...props
 }) => {
   const prefersReducedMotion = useReducedMotion();
@@ -56,7 +56,7 @@ export const RevealGroup = ({
   children,
   className = "",
   stagger = 0.08,
-  viewport = { once: true, amount: 0.18 },
+  viewport = { once: false, amount: 0.18 },
   ...props
 }) => {
   const prefersReducedMotion = useReducedMotion();

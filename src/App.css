@@ -10,6 +10,76 @@
   --line: #303030;
 }
 
+.preloader {
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  display: grid;
+  place-items: center;
+  background: var(--canvas);
+  background-image: linear-gradient(rgba(255, 255, 255, 0.025) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.025) 1px, transparent 1px);
+  background-size: 64px 64px;
+}
+
+.preloader-inner {
+  width: min(420px, calc(100% - 48px));
+  display: grid;
+  gap: 18px;
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+}
+
+.preloader-brand {
+  margin: 0;
+  color: var(--ink);
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 2px;
+}
+
+.preloader-brand span {
+  color: var(--green);
+  animation: blink 1s steps(2) infinite;
+}
+
+.preloader-console {
+  display: grid;
+  gap: 4px;
+  min-height: 92px;
+}
+
+.preloader-console p {
+  margin: 0;
+  color: var(--body);
+  font-size: 12px;
+  line-height: 1.6;
+}
+
+.preloader-console p:last-child {
+  color: var(--green);
+}
+
+.preloader-bar {
+  height: 2px;
+  background: var(--line);
+  overflow: hidden;
+}
+
+.preloader-bar span {
+  display: block;
+  height: 100%;
+  background: var(--green);
+  box-shadow: 0 0 12px var(--green);
+  transition: width 90ms linear;
+}
+
+.preloader-count {
+  margin: 0;
+  color: var(--muted);
+  font-size: 11px;
+  letter-spacing: 2px;
+}
+
 .site-spotlight {
   position: fixed;
   inset: 0;

@@ -6,10 +6,12 @@ import Experience from "./components/experience.component";
 import Projects from "./components/projects.component";
 import Contact from "./components/contact.component";
 import Spotlight from "./components/motion/spotlight.component";
+import Preloader from "./components/motion/preloader.component";
 
 function App() {
   return (
     <>
+      <Preloader />
       <Spotlight />
       <Navbar />
       <main className="site-main">
